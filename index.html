@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css"> 
+    
+    <title>College Hangman</title>
+</head>
+<body>
+<script src="./assets/javascript/game.js"></script>
+    <div class="main">
+        <div class="jumbotron">
+            <h1 class="text-center">Hangman: College Edition</h1>
+            <h3 class="text-center">Words every college student should know!</h3>
+        </div>
+
+        <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card mb-2">
+                      <h3 class="card-header">Your Play:</h3>
+                      <div class="card-body text-center">
+                        <h4 id="hiddenWord"></h4>  
+                        <h4>Enter a letter to begin:
+                                <input type="text" id="Playerletters">           
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <h3 class="card-header gameStats">Game Stats</h3>
+                            <div class="card-body text-center">
+                                    <h4>Guesses Remaining: 
+                                        <div id="guessesLeft"></div>
+                                    </h4>
+                                    <h4>Total Wins:
+                                        <div id="wins"></div>
+                                    </h4>
+                                    <h4>Total Loses:
+                                        <div id="loses"></div>
+                                    </h4> 
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+        </div>
+    </div>
+    
+  
+</body>
+</html>
+
+
+
+

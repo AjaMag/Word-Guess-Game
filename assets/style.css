@@ -1,0 +1,6 @@
+body {
+    background-color: lightblue;
+}
+.main { display: flex column;
+    background-color: transparent;
+}
