@@ -15,9 +15,8 @@ function start() {
     let randWord = compChooses(listOfWords);
     console.log(randWord)
     //this changes each element in randWord to underscores 
-    var replace = "regex";
-    var re = new RegExp(replace,"g");
-    hRandWord = randWord.replace(re, "_");
+
+    hRandWord = randWord.replace(randWord, "_" * randWord.length);
     console.log(hRandWord);
     //this writes the resulting underscores on the page in HTML
     //document.querySelector('#hiddenWord').innerHTML = 
