@@ -43,9 +43,9 @@ document.onkeyup = function(event){
     pGuess = [];
     pGuess.push(letter)
 
-    //for (var i = 0; i < pGuess.length; i++) {
-        //if (randWord.includes(pGuess)) {
-            //pGuess[i].innerHTML = `${randWord[i]}`;
+for (var i = 0; i < pGuess.length; i++) {
+    if (randWord.includes(pGuess)) {
+    pGuess[i].innerHTML = `${randWord[i]}`;
             //}
         //}
 }    
