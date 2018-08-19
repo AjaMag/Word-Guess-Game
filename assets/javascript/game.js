@@ -39,6 +39,7 @@ function start() {
         hiddenArr = splitWord.map(function () {
             return '_';
             });
+
     };
 //this calls the hiddenWordArray function, above
     hiddenWordArray();
@@ -55,11 +56,14 @@ document.onkeyup = function(event){
 //creates an array of player guesses called pGuess, which will add on each letter the user enters 
     pGuess.push(letter);
 //this loop decides if any user-entered letter in the pGuess array is the same as any element in splitWord array    
-    //for (i = 0; i < pGuess.length; i++) {  
+    for (i = 0; i < pGuess.length; i++) {  
         
-            //hiddenArr.replace("_",  )
+  if(splitWord.indexOf(letter) {
+
+  }
+)
             
-        //} 
+        } 
 //The above if / else says that if the player's guessed letter is in the word, 
 //then replace the appropriate underscore in hiddenArr with the appropriate letter of splitWord.         
 
