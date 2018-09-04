@@ -15,11 +15,9 @@ let wins = 0;
 document.querySelector('#wins').innerHTML = wins;
 let loses = 0;
 document.querySelector('#loses').innerHTML = loses;
-//Declaring empty arrays as variables in global scope to be used below in the hiddenWordArray()
-let splitWord = [];
-let hiddenArr = [];
-let pGuess = [];
- 
+//Declaring some globals to be used in start()
+var a;
+var answerArr = []; 
 //declares the start function
 function start() {
    //The compChooses() function here makes the computer choose a randWord from listOfWords..
@@ -31,72 +29,60 @@ function start() {
 //The count of guessesLeft is written on the page with innerHTML
     gLeft = 12;
     document.querySelector('#guessesR').innerHTML = gLeft;
-
-//this splits the letters of randWord (a string) into an array, called splitWord
-    splitWord = randWord.split('');
-    console.log(splitWord);
-//this creates "_" for each splitWord letter 
-    function hiddenWordArray() {
-        hiddenArr = splitWord.map(function () {
-            return '_';
-            });
-        console.log(hiddenArr);
-    };
-    //this calls the hiddenWordArray function
-    hiddenWordArray();
-    //this join method returns the array without commas seperating each letter, and .innerHTML writes it on the page
-    document.querySelector('#hiddenWord').innerHTML = hiddenArr.join(" ");
+//this loop through the length of randWord will write all the letters as "_" and store it in the answerArr
+        for (let i = 0; i < randWord.length; i++) {
+            answerArr[i] = "_";
+        }
+        a = answerArr.join(" ");
+//the above join method returns the array without commas seperating each letter, and the below .innerHTML writes it on the page
+    document.querySelector('#hiddenWord').innerHTML = a;
+    console.log(a)    
 };
 //when page loads this calls the start function, above
 start();
 
-// 2.) Checks if player guess is a repeated letter
-// function isRepeatedKey(userGuess) {
-//         var isInArray = pGuess.indexOf(userGuess);
-//         return isInArray < 0 ? false : true;
-//     };
-// 3.) When user enters letters ONLY into the textbox, the below will run 
+//Declaring some globals to be used in the key up function below
+var pGuess = [];
+var count = 0;
+var x ;
+// 2.) When the user hits keys, the below "keyup" will run 
 document.addEventListener('keyup', function(event) {
+    // this first "if" condition looks only for letter keys
     if (event.which >= 65 && event.which <= 90) {
-       console.log(event.which)
-    // changes all letter inputs to Lower Case so it matches the case in all my arrays
-    let letter = event.key.toLowerCase();
-    // creates an array of player guesses called pGuess, which will add on each letter the user enters 
-    pGuess.push(letter)
-    console.log(pGuess);
-    document.querySelector('#guessedL').innerHTML = pGuess;
-    // decides whether a letter input in the pGuess array is in the splitWord array 
-    function checkLetter() {
-        let dashes_temp = ""
-        let count = 0
-        let dashes = ""
-        for (let i = 0; i < splitWord.length; i++) { 
-            dashes = dashes + "_"
-            if (splitWord[i] === letter) {
-                console.log("needs replacing")
-                dashes_temp = dashes_temp + i + "" 
+        // changes all letter inputs to Lower Case so it matches the case in all my arrays
+        var letter = event.key.toLowerCase();
+        //for the array of player guesses called pGuess, this adds each letter to the end of the pGuess array 
+        pGuess.push(letter)
+        //this writes all player guesses onto html
+        document.querySelector('#guessedL').innerHTML = pGuess;
+        //this function decides whether the player's letter input is in the randWord or not 
+        function checkLetter() {
+            for (let i = 0; i < randWord.length; i++) {
+                if (randWord[i] === letter) {
+                    answerArr[i] = letter;
+                    document.getElementById('comment').innerHTML = "Your guess is correct!"
+                } else {
+                    document.getElementById('comment').innerHTML = "Oops!"
+                }
+            }   
+        document.getElementById('hiddenWord').innerHTML = answerArr.join(" ");
         }
-            else {
-                console.log("stays as dash")
-                dashes_temp = dashes_temp + dashes[count] + ""
-            }    
-        }
-        count++
-        console.log(dashes_temp) 
+        checkLetter();
     }
-    checkLetter();
-}
-else {
-    alert("The key you entered is not a valid choice... Please choose a letter")
-};
+    //if user hit a key that is a non-letter this will run
+    else {
+        alert("The key you entered is not a valid choice... Please choose a letter")
+    };
 })
-   
+     // if (var x = false) {
+        //     
+        //     
 
 //     //the below says if player enters a letter that is not in the word, then guesses left decreases by
 // // 1 and is written in html on the page each time.        
 // // if (splitWord.indexOf(letter) < 0 {
-// //     gLeft--;
-// //     document.querySelector('#guessesLeft').innerHTML = `${gLeft}`; 
+// //    
+// //      
 // // })
 
 // winGame: function() {
@@ -114,3 +100,50 @@ else {
 // },
 // 
 // }
+// 2.) Checks if player guess is a repeated letter
+// function isRepeatedKey(userGuess) {
+//         var isInArray = pGuess.indexOf(userGuess);
+//         return isInArray < 0 ? false : true;
+//     };
+// let splitWord = [];
+// let hiddenArr = [];
+//this splits the letters of randWord (a string) into an array, called splitWord
+//     splitWord = randWord.split('');
+//     console.log(splitWord);
+// //this creates "_" for each splitWord letter 
+//     function hiddenWordArray() {
+//         hiddenArr = splitWord.map(function () {
+//             return '_';
+//             });
+//         console.log(hiddenArr);
+//         return hiddenArr;
+//     };
+//     //this calls the hiddenWordArray function
+//     hiddenWordArray();
+
+// let dashes = ""
+// let dashes_temp = ""
+// let count = 0
+// var newStr = document.getElementById('hiddenWord').innerHTML;
+// for (let i = 0; i < splitWord.length; i++) { 
+//     // dashes = dashes + "_"
+//     if (splitWord[i] === letter) {
+//         console.log("needs replacing")
+//         dashes_temp = newStr.replace(newStr.charAt[i], splitWord[i])
+//     }
+//     else {
+//     console.log("stays as dash")
+    
+//      } 
+//      console.log(newStr.charAt[i])           
+// }
+// count++ 
+// console.log(dashes_temp)
+// // var textnode = document.createTextNode(dashes_temp);
+// // var textnode2 = document.createTextNode(hiddenArr);
+// var item = document.getElementById("hiddenWord");
+// item.appendChild(textnode) 
+// item.appendChild(textnode2) 
+// item.removeChild(textnode2)  
+
+// console.log(item)  
