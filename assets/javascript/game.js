@@ -31,6 +31,8 @@ function start() {
 //The count of guessesLeft is written on the page with innerHTML
     gLeft = 12;
     document.querySelector('#guessesR').innerHTML = gLeft;
+//this is comments to user    
+    document.getElementById('gamePlay').innerHTML = "Enter the letter key of your choice to play!"
 //this loop through the length of randWord will write all the letters as "_" and store it in the answerArr
         for (let i = 0; i < randWord.length; i++) {
             answerArr[i] = "_";
