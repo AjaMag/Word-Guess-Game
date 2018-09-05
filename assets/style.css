@@ -15,3 +15,16 @@ body {
 }
 .col2 { color: rgb(255, 0, 98);
 }
+
+
+@keyframes commenting {
+    0%   {color: red;}
+    25%  {color: rgb(94, 255, 0);}
+    50%  {color: blue;}
+    100% {color: black;}
+}
+
+.comment {
+    animation-name: commenting;
+    animation-duration: 2s;
+}
