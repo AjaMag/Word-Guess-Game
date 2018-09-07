@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="stylesheet" href="reset.css">
     <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/style.css"> 
@@ -14,13 +13,9 @@
 <body>
 
     <div class="main">
-        <div class="jumbotron">
+        <div class="jumbotron bg-info">
             <h1 class="text-center">Word Game: College Edition</h1>
             <h3 class="text-center">Words every college student should know!</h3>
-        </div>
-        
-        <div class="col-sm-3">
-            <button type="button" id="btn-start" class="btn-lg btn-info" onclick="start();">New Game</button>
         </div>
         <div class="container">
                 <div class="row">
@@ -28,9 +23,10 @@
                     <div class="card mb-2">
                       <h3 class="card-header">Your Play:</h3>
                       <div class="card-body text-center">
-                        <h4 id="hiddenWord"></h4>  
-                        <h4>Enter a letter to begin:
-                                <input type="text" id="Playerletters">           
+                        <h4 id="hiddenWord"></h4>
+                        <h5 id="comment" class="comment"></h5>  
+                        <br>
+                        <h4 id="gamePlay"></h4>
                       </div>
                     </div>
                   </div>
@@ -39,23 +35,31 @@
                     <div class="col-md-12">
                         <div class="card mb-2">
                             <h3 class="card-header gameStats">Game Stats</h3>
-                            <div class="card-body text-center">
-                                    <h4>Guesses Remaining: 
-                                        <div id="guessesLeft"></div>
-                                    </h4>
-                                    <h4>Total Wins:
-                                        <div id="wins"></div>
-                                    </h4>
-                                    <h4>Total Loses:
-                                        <div id="loses"></div>
-                                    </h4> 
+                            <div class="card-body text-left">
+                                <div class="row">
+                                    <div class="col col1">
+                                        <h4>Guessed Letters: 
+                                            <div id="guessedL"></div>
+                                        </h4>    
+                                    </div>
+                                </div>
+                                <div class="row">     
+                                    <div class="col col2">
+                                        <h4>Guesses Remaining: 
+                                            <div id="guessesR"></div>
+                                        </h4>  
+                                    </div>
+                                </div>     
                             </div>
                         </div>
                     </div>              
                 </div>
         </div>
     </div>
-    
+   <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>    
 <script type="text/javascript" src="./assets/javascript/game.js"></script>
   
 </body>
