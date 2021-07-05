@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(0, 89, 255);
+}
+.main { display: flex column;
+    background-color: transparent;
+}
+
+.col {
+    display: flex;
+    justify-content: space-around;
+}
+
+.col1 { color: blue;
+    justify-content: left;
+}
+.col2 { color: rgb(255, 0, 98);
+}
+
+
+@keyframes commenting {
+    0%   {color: red;}
+    25%  {color: rgb(94, 255, 0);}
+    50%  {color: blue;}
+    100% {color: black;}
+}
+
+.comment {
+    animation-name: commenting;
+    animation-duration: 2s;
+}
